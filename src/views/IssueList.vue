@@ -27,7 +27,8 @@ export default {
   name: 'IssueList',
   data() {
     return {
-      issues: []
+      issues: [],
+      add_update: ""
     }
   },
   methods: {
@@ -37,6 +38,12 @@ export default {
           this.issues = res.data
       })
     }
+  },
+  created() {
+    this.getIssues();
+  },
+  updated() {
+    console.log("hello issues");
   }
 }
 </script>
