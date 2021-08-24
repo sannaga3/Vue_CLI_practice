@@ -16,6 +16,13 @@
 
 <script>
 import axios from 'axios';
+const client = axios.create({
+  baseURL: 'https://api.github.com/repos/sannaga3/Vue_CLI_practice',
+  headers: { //--3
+    'Accept': 'application/vnd.github.v3+json',
+    'Content-Type':'application/json',
+  },
+})
 export default {
   name: 'IssueList',
   data() {
@@ -25,14 +32,7 @@ export default {
   },
   methods: {
     getIssues() {
-      axios.get('https://api.github.com/repos/sannaga3/Vue_CLI_practice/issues',
-          {
-            headers: {
-              'Accept': 'application/vnd.github.v3+json',
-              'Content-Type':'application/json',
-            },
-          },
-        )
+      client.get('/issues')
         .then((res) => {
           this.issues = res.data
       })
