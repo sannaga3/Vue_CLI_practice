@@ -30,7 +30,7 @@ export default {
       this.todo = '';
     },
     removeTodo(index){
-      this.todos.splice(index, 1); //--1
+      this.todos.splice(index, 1);
     }
   }
 }

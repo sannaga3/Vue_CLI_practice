@@ -18,7 +18,7 @@
 import axios from 'axios';
 const client = axios.create({
   baseURL: 'https://api.github.com/repos/sannaga3/Vue_CLI_practice',
-  headers: { //--3
+  headers: {
     'Accept': 'application/vnd.github.v3+json',
     'Content-Type':'application/json',
   },
