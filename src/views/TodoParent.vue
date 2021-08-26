@@ -5,19 +5,20 @@
       <el-input placeholder="Please input todo" v-model="todo"></el-input>
     </form>
     <el-row :gutter="36">
-      <el-col :span="6"  v-for="( todo, index ) in todos" :key="index">
-        <el-card class="box-card bg-purple-light" shadow="hover" style="margin: 5px 0;">
-          {{ todo }}
-          <el-button type="danger" style="margin-left: 30px;" icon="el-icon-delete" circle @click="removeTodo(index)"></el-button>
-        </el-card>
+      <el-col :span="24">
+        <TodoItem v-for="( todo, index ) in todos" :key="index" v-bind:todo="todo"/>
       </el-col>
     </el-row>
   </div>
 </template>
 
 <script>
+import TodoItem from '@/components/TodoItem';
 export default {
   name: 'TodoList',
+  components: {
+    TodoItem
+  },
   data() {
     return {
       todo: '',
@@ -27,7 +28,9 @@ export default {
   methods: {
     addTodo() {
       this.todos.push(this.todo);
+      console.log(this.todo);
       this.todo = '';
+      console.log(this.todos);
     },
     removeTodo(index){
       this.todos.splice(index, 1);
