@@ -13,13 +13,5 @@
 export default {
   name: 'TodoItem',
   props: ['todo']
-  ,
-  methods: {
-    created() {
-      console.log(this);
-      this.$emit(this.todo);
-      console.log(this.todo)
-    },
-  }
 }
 </script>
